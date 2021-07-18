@@ -11,7 +11,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item {
-    private String id; // UUID
+    private String id; // UUID;
     private String name;
     private String desc;
     private LocalDateTime createdAt;
