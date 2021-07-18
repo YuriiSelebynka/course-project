@@ -38,4 +38,9 @@ public class ItemRestController {
          return service.get(id);
      }
 
+     @RequestMapping("/delete/{id}")
+    public Item delete(@PathVariable("id") String id) {
+         return service.delete(id);
+     }
+
 }

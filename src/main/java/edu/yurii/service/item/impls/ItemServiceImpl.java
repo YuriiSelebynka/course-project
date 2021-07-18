@@ -46,7 +46,11 @@ public class ItemServiceImpl implements IItemService {
 
     @Override
     public Item delete(String id) {
-        return null;
+
+        Item item = this.get(id);
+        list.remove(item);
+
+        return item;
     }
 
     @Override
