@@ -1,5 +1,13 @@
 package edu.yurii.model;
 
+/*
+  @author   Yurii Selebynka
+  @project   course-project
+  @class  Item
+  @version  1.0.0
+  @since 18.07.2021 - 18.05
+*/
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
