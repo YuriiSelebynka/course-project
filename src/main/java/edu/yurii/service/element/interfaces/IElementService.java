@@ -8,7 +8,6 @@ package edu.yurii.service.element.interfaces;
 */
 
 import edu.yurii.model.Element;
-import edu.yurii.model.Item;
 
 import java.util.List;
 
@@ -18,5 +17,6 @@ public interface IElementService {
     Element get(String id);
     Element update(Element element);
     Element delete(String id);
-    //Element<Element> getAll();
+    List<Element> getAll();
+
 }
