@@ -8,7 +8,9 @@ package edu.yurii.service.item.impls;
 */
 
 import edu.yurii.model.Item;
+import edu.yurii.repository.FakeItemRepository;
 import edu.yurii.service.item.interfaces.IItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,43 +20,32 @@ import java.util.List;
 
 @Service
 public class ItemServiceImpl implements IItemService {
-    private LocalDateTime time = LocalDateTime.now();
-    private List<Item> list = new ArrayList<>(
-            Arrays.asList(
-                    new Item("0", "name0", "desc0", time, time),
-                    new Item("1", "name1", "desc1", time, time),
-                    new Item("2", "name2", "desc2", time, time),
-                    new Item("3", "name3", "desc3", time, time)
-            )
-    );
+
+    @Autowired
+    FakeItemRepository repository;
+
     @Override
     public Item create(Item item) {
-        return null;
+        return repository.create(item);
     }
 
     @Override
     public Item get(String id) {
-        Item item = list.stream().filter(el -> el.getId().equals(id))
-                .findAny().get();
-        return item;
+        return repository.get(id);
     }
 
     @Override
     public Item update(Item item) {
-        return null;
+        return repository.update(item);
     }
 
     @Override
     public Item delete(String id) {
-
-        Item item = this.get(id);
-        list.remove(item);
-
-        return item;
+        return repository.delete(id);
     }
 
     @Override
     public List<Item> getAll() {
-        return list;
+        return repository.getAll();
     }
 }

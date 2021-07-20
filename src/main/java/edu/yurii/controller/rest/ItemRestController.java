@@ -11,9 +11,7 @@ package edu.yurii.controller.rest;
 import edu.yurii.model.Item;
 import edu.yurii.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +40,15 @@ public class ItemRestController {
     public Item delete(@PathVariable("id") String id) {
          return service.delete(id);
      }
+
+     @PostMapping("/create")
+    public Item create(@RequestBody Item item) {
+         return service.create(item);
+     }
+
+     @PostMapping("/update")
+    public Item update(@RequestBody Item item) {
+        return service.update(item);
+    }
 
 }
