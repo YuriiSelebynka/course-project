@@ -9,7 +9,7 @@
 
 <h1> Table of items </h1>
 <div>
-<table border="3" bgcolor="#f0f8ff">
+<table style="text-align: center" border="3" bgcolor="#f0f8ff">
 
     <tr>
         <th>ID</th>
