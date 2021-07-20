@@ -20,13 +20,13 @@ import java.util.Objects;
 public class Element {
     private String id;
     private String name;
-    private String desc;
+    private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public Element(String name, String desc) {
         this.name = name;
-        this.desc = desc;
+        this.description = desc;
     }
 
     @Override
