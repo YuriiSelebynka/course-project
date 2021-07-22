@@ -49,6 +49,7 @@ public class FakeItemRepository {
     public Item update(Item item) {
         String id = item.getId();
         Item itemToUpdate = this.get(id);
+        item.setCreatedAt(itemToUpdate.getCreatedAt());
         int index = list.indexOf(itemToUpdate);
         item.setUpdatedAt(LocalDateTime.now());
         list.remove(itemToUpdate);

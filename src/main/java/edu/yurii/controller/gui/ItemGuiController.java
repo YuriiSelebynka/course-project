@@ -8,6 +8,7 @@ package edu.yurii.controller.gui;
 */
 
 import edu.yurii.form.ItemCreateForm;
+import edu.yurii.form.ItemUpdateForm;
 import edu.yurii.model.Item;
 import edu.yurii.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class ItemGuiController {
 //
 //        return service.get(id);
 //    }
-//
+
     @RequestMapping("/delete/{id}")
     public String delete(Model model, @PathVariable("id") String id) {
         service.delete(id);
@@ -46,13 +47,6 @@ public class ItemGuiController {
 //        model.addAttribute("items", items);
         return "redirect:/gui/item/all";
 
-    }
-
-    @PostMapping("/update/{id}")
-    public String update(Model model, @PathVariable("id") String id) {
-        List<Item> items = service.getAll();
-        model.addAttribute("items", items);
-        return "items";
     }
 
     @GetMapping("/create")
@@ -68,6 +62,34 @@ public class ItemGuiController {
         item.setName(form.getName());
         item.setDesc(form.getDesc());
         service.create(item);
+
+        return "redirect:/gui/item/all";
+    }
+
+    @GetMapping("/update/{id}")
+    public String update(Model model, @PathVariable("id") String id) {
+        Item item = service.get(id);
+        ItemUpdateForm formToUpdate = new ItemUpdateForm();
+
+        formToUpdate.setId(item.getId());
+        formToUpdate.setName(item.getName());
+        formToUpdate.setDesc(item.getDesc());
+        formToUpdate.setCreatedAt(item.getCreatedAt());
+        formToUpdate.setUpdatedAt(item.getUpdatedAt());
+
+        model.addAttribute("form", formToUpdate);
+        return "item-update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@ModelAttribute("form") ItemUpdateForm form) {
+        Item item = new Item();
+        item.setId(form.getId());
+        item.setName(form.getName());
+        item.setDesc(form.getDesc());
+        item.setCreatedAt(form.getCreatedAt());
+
+        service.update(item);
 
         return "redirect:/gui/item/all";
     }
