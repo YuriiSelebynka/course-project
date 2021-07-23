@@ -1,7 +1,6 @@
 package edu.yurii.repository;
 
 import edu.yurii.model.Element;
-import edu.yurii.model.Item;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

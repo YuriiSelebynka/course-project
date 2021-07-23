@@ -81,6 +81,7 @@ public class ElementGuiController {
     public String update(@ModelAttribute("form") ElementUpdateForm elementUpdateForm) {
         Element element = new Element();
         element.setId(elementUpdateForm.getId());
+        element.setItem(element.getItem());
         element.setName(elementUpdateForm.getName());
         element.setDescription(elementUpdateForm.getDescription());
         element.setCreatedAt(elementUpdateForm.getCreatedAt());

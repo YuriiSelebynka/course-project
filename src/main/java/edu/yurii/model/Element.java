@@ -24,7 +24,7 @@ public class Element {
     @Id
     private String id;
     private String name;
-    private Item item;
+    public Item item;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

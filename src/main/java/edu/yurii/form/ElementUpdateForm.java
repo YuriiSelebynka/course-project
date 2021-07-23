@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 public class ElementUpdateForm {
     private String id;
     private String name;
-    private Item item;
+    public Item item;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

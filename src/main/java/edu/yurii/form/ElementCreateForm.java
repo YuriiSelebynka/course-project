@@ -16,7 +16,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class ElementCreateForm {
     private String name;
-    private Item item;
+    public Item item;
     private String description;
 
     public ElementCreateForm() {

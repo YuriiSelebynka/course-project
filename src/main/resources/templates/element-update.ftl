@@ -14,11 +14,11 @@
     <fieldset>
         <legend> Add Element</legend>
         <form anem="element" action="" method="POST">
-<#--            id:<@spring.formInput "form.id" "" "text"/>-->
-<#--            <br>-->
+            id:<@spring.formInput "form.id" "" "text"/>
+            <br>
             name:<@spring.formInput "form.name" "" "text"/>
             <br>
-            Item:<@spring.formInput "form.item" "" "text"/>
+            Item:<@spring.formInput "form.item.id" "" "text"/>
             <br>
             Description:<@spring.formInput "form.description" "" "text"/>
             <br>

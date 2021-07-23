@@ -49,6 +49,7 @@ public class FakeElementRepository {
     public Element create(Element element) {
         String id = UUID.randomUUID().toString();
         element.setId(id);
+        element.setItem(element.getItem());
         element.setCreatedAt(LocalDateTime.now());
         element.setUpdatedAt(LocalDateTime.now());
         System.out.println("Element has been accepted - " + element.toString());
@@ -67,6 +68,7 @@ public class FakeElementRepository {
     public Element update(Element element) {
         String id = element.getId();
         Element elementToUpdate = this.get(id);
+        element.setItem(elementToUpdate.getItem());
         element.setCreatedAt(elementToUpdate.getCreatedAt());
         int index = elementList.indexOf(elementToUpdate);
         element.setUpdatedAt(LocalDateTime.now());
