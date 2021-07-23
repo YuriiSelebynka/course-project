@@ -14,22 +14,31 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Item</th>
             <th>Description</th>
             <th>Created</th>
             <th>Updated</th>
+            <th>Delete</th>
+            <th>Edit</th>
         </tr>
 
         <#list elements as element>
             <tr>
                 <td>${element.id}</td>
                 <td>${element.name}</td>
+                <td>${element.item.name}</td>
                 <td>${element.description}</td>
                 <td>${element.createdAt}</td>
                 <td>${element.updatedAt}</td>
+                <td> <a href="/gui/element/delete/${element.id}"> <input type="button" class="btn btn-danger" value="Del"> </a> </td>
+                <td> <a href="/gui/element/update/${element.id}"> <input type="button" class="btn btn-dark" value="Edit"> </a> </td>
+
             </tr>
         </#list>
 
     </table>
 </div>
+
+<td> <a href="/gui/element/create"> <input type="button" class="btn btn-success" value="Create"> </a> </td>
 </body>
 </html>
